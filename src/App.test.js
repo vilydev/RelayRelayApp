@@ -62,6 +62,8 @@ describe("my awesome project", () => {
         // via an Enzyme API
         button.dispatchEvent(new MouseEvent('click', {bubbles: true}))
       });
+
+      jest.spyOn(require('./chatroom/Chat.js'),)
       // Refresh Enzyme's view of the output
       // joinWrapper.update();
       // joinWrapper.find('#userInput').simulate('change', { target: { value: 'Saul' }});
