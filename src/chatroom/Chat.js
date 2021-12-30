@@ -73,7 +73,7 @@ function Chat () {
 			});
 		}
 	}
-
+	
 	//Add a new message to the message list
 	const receiveMessage = useCallback((data) => {
 		let m = <Message text={data["message"]} time={new Date().toLocaleString()} author={data["user"]} />;
