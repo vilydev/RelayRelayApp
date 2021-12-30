@@ -271,11 +271,11 @@ function Chat () {
 			<h1>Join a room</h1>
 			<input type="text" id="roomInput" placeholder="Type room ID" />
 			<br></br><br></br>
-			<input type="text" placeholder="Enter your user name" onChange={(event) => {
+			<input type="text" id="userInput" placeholder="Enter your user name" onChange={(event) => {
 				setUserName(event.target.value);
 			}}
 			/>
-			<button onClick={() => {
+			<button id="joinRoomButton" onClick={() => {
 				let inputValue = document.getElementById('roomInput').value;
 				if (inputValue !== room && inputValue !== "") {
 					if (room !== "") {
