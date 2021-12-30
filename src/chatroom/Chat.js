@@ -250,19 +250,19 @@ function Chat () {
 
 	useEffect(() => {
 		//Set up socket listeners when component is instantiated in the DOM
-		socket.on("message sent", receiveMessage);
-		socket.on("user joined", systemMessage);
-		socket.on("user left", systemMessage);
-		socket.on("typing countdown", setCountdown);
-		socket.on("voice", playAudio);
+		// socket.on("message sent", receiveMessage);
+		// socket.on("user joined", systemMessage);
+		// socket.on("user left", systemMessage);
+		// socket.on("typing countdown", setCountdown);
+		// socket.on("voice", playAudio);
 
 		return () => {
 			//Disable socket listeners when component is destroyed
-			socket.off("message sent", receiveMessage);
-			socket.off("user joined", systemMessage);
-			socket.off("user left", systemMessage);
-			socket.off("typing countdown", setCountdown);
-			socket.off("voice", playAudio);
+			// socket.off("message sent", receiveMessage);
+			// socket.off("user joined", systemMessage);
+			// socket.off("user left", systemMessage);
+			// socket.off("typing countdown", setCountdown);
+			// socket.off("voice", playAudio);
 		};
 	}, [socket, receiveMessage, systemMessage, playAudio, setCountdown]);
 

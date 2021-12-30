@@ -10,7 +10,7 @@ import * as enzyme from 'enzyme';
 import mount from 'enzyme/build/mount';
 import render from 'enzyme/build/render';
 import { act } from 'react-dom/test-utils';
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 const { createServer } = require("http");
@@ -19,14 +19,11 @@ const Client = require("socket.io-client");
 
 describe("my awesome project", () => {
   let serverSocket, clientSocket;
-  console.log("starting")
   let container;
 
   beforeEach(() => {
     container = document.createElement('div');
     document.body.appendChild(container);
-    const useEffect = jest.spyOn(React, "useEffect");
-    useEffect.mockImplementation(f => f());
   });
   
   afterEach(() => {
@@ -56,8 +53,10 @@ describe("my awesome project", () => {
       // joinWrapper.find('#roomInput').val('1');
       // joinWrapper.find('#userInput').val('Saul');
       
+      
+      container.querySelector('#roomInput').value = '1';
+      container.querySelector('#userInput').value = 'Saul';
       const button = container.querySelector('#joinRoomButton');
-      console.log(button);
       act(() => {
         // Invoke the button's click handler, but this time directly, instead of
         // via an Enzyme API
@@ -67,7 +66,8 @@ describe("my awesome project", () => {
       // joinWrapper.update();
       // joinWrapper.find('#userInput').simulate('change', { target: { value: 'Saul' }});
       // joinWrapper.find('#joinRoomButton').simulate('click');
-      expect(mockSocket.emit).toHaveBeenCalled('join room', { user: 'Saul', room: '1'}, expect.any(Function));
+      console.log(mockSocket.emit);
+      expect(mockSocket.emit).toHaveBeenCalledWith('joinRoomButton', { user: 'Saul', room: '1'}, expect.any(Function));
     })
   });
 /**
