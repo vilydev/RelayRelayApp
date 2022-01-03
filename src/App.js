@@ -6,6 +6,7 @@ import Color from "./Components/Color.js";
 import Page from "./Components/Page.js";
 import UserInfo from "./Components/UserInfo.js";
 import Login from "./Components/NoAuth/Login.js";
+import Chat from "./Components/Chat.js";
 import {default as Registration} from "./Components/NoAuth/Register.js";
 import LoginSplash from "./Components/NoAuth/LoginSplash.js";
 //https://gridfiti.com/aesthetic-color-palettes/
@@ -41,6 +42,7 @@ function SwitchBoard({token, setToken, activeTheme, updateActiveTheme }) {
 				<Route path="user">
 					<Route index element={<Users />} />
 					<Route path=":userID" element={<User />} />
+					<Route path="chat" element={<Chat />} />
 					<Route path="profile">
 						<Route index element={<Page theme={activeTheme} themes={updateActiveTheme} />} />
 						<Route path="userInfo" element={<UserInfo />} />

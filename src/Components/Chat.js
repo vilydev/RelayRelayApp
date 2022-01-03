@@ -1,10 +1,7 @@
-import '../styles/styles.css';
+import '../Styles/themes.css';
 import io from 'socket.io-client';
 import React, { useEffect, useState, useContext, useCallback } from "react";
 import ReactDOM from 'react-dom';
-import TextField from "@material-ui/core/TextField";
-
-import React, { useEffect, useState } from "react";
 
 const socket = io.connect("http://localhost:3001");
 
@@ -48,11 +45,6 @@ function Chat () {
 	}, []);
 
 	const systemMessage = useCallback((data) => {
-		let m = <SystemMessage text={data["message"]}/>;
-		setMessageList((list) => [...list, m]);
-	}, []);
-
-    const systemMessage = useCallback((data) => {
 		let m = <SystemMessage text={data["message"]}/>;
 		setMessageList((list) => [...list, m]);
 	}, []);
