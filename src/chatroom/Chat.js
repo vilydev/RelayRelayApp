@@ -14,6 +14,7 @@ import Message from './Message.js';
 import SystemMessage from './SystemMessage.js';
 import Active from './Active.js';
 import {SocketContext} from '../context/socket.js';
+import "../styles/styles.css";
 
 function Chat () {
 	//string holding username
@@ -287,24 +288,22 @@ function Chat () {
 				}
 				joinRoom(inputValue);
 			}}>Join Now </button>
-			<br></br><br></br><br></br>
-			<input type="text" id="messageInput" placeholder="message" onChange={(event) =>{
-				setMessage(event.target.value);
-				setActive();
-			}}
-			/>
-			<button onClick={() => {
-				sendMessage();
-				let messageInput = document.getElementById('messageInput');
-				messageInput.value = "";
-				setMessage("");
-				setNotActive();
-			}}>Send message...</button>
-			<br></br><br></br>
-			<button onClick={sendAudio}>Send audio to room</button>
-			<br></br>
-			<button onClick={clearMessages}>Clear message</button>
-			<br></br><br></br>
+			<div id='messageTextAndButton'>
+				<input type="text" id="messageInput" placeholder="message" onChange={(event) =>{
+					setMessage(event.target.value);
+					setActive();
+				}}
+				/>
+				<button id='sendbtn' onClick={() => {
+					sendMessage();
+					let messageInput = document.getElementById('messageInput');
+					messageInput.value = "";
+					setMessage("");
+					setNotActive();
+				}}>Send message...</button>
+				<button id = 'audiomessage' onClick={sendAudio}>Send audio to room</button>
+				<button id='clearmessage' onClick={clearMessages}>Clear message</button>
+			</div>
 			<Active typing={usersTyping} />
 			<br></br>
 			<div id="messages">
